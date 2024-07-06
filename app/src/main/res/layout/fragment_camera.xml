@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MainActivity">
+        <LinearLayout
+            android:id="@+id/ll_above_options"
+            android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/viewFinder"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:id="@+id/home_btn"
+                android:clickable="true"
+                android:layout_weight="1"
+                android:src="@drawable/ic_home"
+                android:focusable="true"
+                />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="36dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+
+                android:id="@+id/flash_auto_btn"
+                android:clickable="true"
+                android:src="@drawable/ic_flash_auto"
+                android:focusable="true" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="36dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+
+                android:id="@+id/flash_off_btn"
+                android:clickable="true"
+                android:src="@drawable/ic_flash_off"
+                android:focusable="true" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="36dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+
+                android:id="@+id/flash_on_btn"
+                android:clickable="true"
+                android:src="@drawable/ic_flash_on"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/viewFinder"
+            app:layout_constrainedHeight="true"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/ll_cameraShutter_Region"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_above_options"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/ll_cameraShutter_Region"
+            android:layout_marginTop="-120dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/clicked_image_iv"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="46dp"
+                    android:visibility="gone"
+                    android:src="@color/blueDark"
+                    />
+
+                <ProgressBar
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/pb_img_pt"
+                    android:visibility="gone"
+                    android:indeterminate="true"
+                    android:indeterminateDrawable="@drawable/progress_bar_drawable"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="50dp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="@id/ll_cameraShutter_Region"
+                    app:layout_constraintBottom_toBottomOf="@id/ll_cameraShutter_Region"
+                    app:layout_constraintLeft_toRightOf="@id/clicked_image_iv"
+                    app:layout_constraintRight_toLeftOf="@id/save_btn"
+                    android:id="@+id/capture_btn"
+                    app:cornerRadius="35dp"
+                    android:background="@drawable/round_button"
+                    android:backgroundTint="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:text="Save"
+                    android:visibility="gone"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="18dp"
+                    app:strokeColor="@color/white"
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:layout_constraintRight_toRightOf="@id/ll_cameraShutter_Region"
+                    app:layout_constraintTop_toTopOf="@id/ll_cameraShutter_Region"
+                    app:layout_constraintBottom_toBottomOf="@id/ll_cameraShutter_Region"
+                    android:id="@+id/save_btn"/>
+            </LinearLayout>
+            </LinearLayout>
+
+
+</LinearLayout>
